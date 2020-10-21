@@ -1,0 +1,17 @@
+version: '3'
+services:
+  python_pa:
+    container_name: personal_assistant
+    build:
+      context: ./
+    ports:
+      - 6001:600
+    volumes: 
+      - ./src:/usr/src/app
+      - ./vscode-server:/root/.vscode-server
+    devices:
+      - /dev/snd:/dev/snd
+    networks:
+      - pythonNet
+networks:
+  pythonNet:
